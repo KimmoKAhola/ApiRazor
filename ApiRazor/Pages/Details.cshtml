@@ -1,0 +1,19 @@
+﻿@page
+@model ApiRazor.Pages.Details
+
+
+@* Updated": "2024-02-22T21:12:10+01:00", *@
+@* "Published": "2024-02-22T17:22:52+01:00", *@
+@* "Headline" *@
+
+<div class="card card-body container shadow">
+    <h2>@Model.KrisInfoRoot.Headline</h2>
+    @Html.Raw(@Model.KrisInfoRoot.BodyText)
+    <p>Published: @Model.KrisInfoRoot.Published</p>
+    <p>Last updated at: @Model.KrisInfoRoot.Updated</p>
+    @if (@Model.KrisInfoRoot.Links.Any(x => x.Text.Contains("Trafikverket")))
+    {
+        <a href="@Model.Url">LÄNK</a>
+    }
+    <a asp-page="/Index" class="btn btn-primary">Return</a>
+</div>

@@ -1,0 +1,27 @@
+﻿@page
+@model ApiRazor.Pages.Movies
+
+
+
+<div class="text-center container">
+    @* <h1 class="display-4">News</h1> *@
+    <table class="table table-striped table-bordered table-hover shadow">
+        <thead>
+        <th>Id</th>
+        <th>Movie Title</th>
+        <th>Published</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+        @foreach (var result in Model.ListOfMovies.Results)
+        {
+            <tr>
+                <td>@result.Id</td>
+                <td>@result.TitleText.Text</td>
+                <td>@if(@result.ReleaseYear.Year != null){@result.ReleaseYear.Year}</td>
+                <td><a asp-page="/MovieDetails" class="btn btn-success">View</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

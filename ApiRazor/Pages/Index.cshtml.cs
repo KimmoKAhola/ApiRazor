@@ -1,3 +1,4 @@
+using ApiRazor.KrisInfo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,14 +6,17 @@ namespace ApiRazor.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
-
-    public IndexModel(ILogger<IndexModel> logger)
+    private readonly IHttpService<KrisInfoRoot> _service;
+    private const int NumberOfDays = 365;
+    public List<KrisInfoRoot> KrisInfo { get; set; } = new();
+    public IndexModel(IHttpService<KrisInfoRoot> service)
     {
-        _logger = logger;
+        _service = service;
     }
 
-    public void OnGet()
+    public async Task<IActionResult> OnGet()
     {
+        KrisInfo = await _service.GetAll(NumberOfDays);
+        return Page();
     }
 }

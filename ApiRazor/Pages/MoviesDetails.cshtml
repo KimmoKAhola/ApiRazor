@@ -1,0 +1,14 @@
+﻿@page
+@model ApiRazor.Pages.MoviesDetails
+
+<div class="card card-body container shadow">
+    <h2>@Model.Movie.Results.First().PrimaryImage</h2>
+    @* @Html.Raw(@Model.KrisInfoRoot.BodyText) *@
+    @* <p>Published: @Model.KrisInfoRoot.Published</p> *@
+    @* <p>Last updated at: @Model.KrisInfoRoot.Updated</p> *@
+    @* @if (@Model.KrisInfoRoot.Links.Any(x => x.Text.Contains("Trafikverket"))) *@
+    @* { *@
+    @*     <a href="@Model.Url">LÄNK</a> *@
+    @* } *@
+    @* <a asp-page="/Index" class="btn btn-primary">Return</a> *@
+</div>
